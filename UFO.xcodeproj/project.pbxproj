@@ -17,6 +17,7 @@
 		A501CD61208507C800B470C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A501CD5F208507C800B470C8 /* LaunchScreen.storyboard */; };
 		A501CD6C208507C800B470C8 /* UFOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD6B208507C800B470C8 /* UFOTests.swift */; };
 		A501CD77208507C800B470C8 /* UFOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD76208507C800B470C8 /* UFOUITests.swift */; };
+		A501CD85208534C900B470C8 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD84208534C900B470C8 /* Elements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A501CD72208507C800B470C8 /* UFOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UFOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A501CD76208507C800B470C8 /* UFOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFOUITests.swift; sourceTree = "<group>"; };
 		A501CD78208507C800B470C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A501CD84208534C900B470C8 /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				A501CD54208507C600B470C8 /* Actions.sks */,
 				A501CD56208507C600B470C8 /* GameScene.swift */,
 				A501CD58208507C600B470C8 /* GameViewController.swift */,
+				A501CD84208534C900B470C8 /* Elements.swift */,
 				A501CD5A208507C600B470C8 /* Main.storyboard */,
 				A501CD5D208507C800B470C8 /* Assets.xcassets */,
 				A501CD5F208507C800B470C8 /* LaunchScreen.storyboard */,
@@ -269,6 +272,7 @@
 			files = (
 				A501CD57208507C600B470C8 /* GameScene.swift in Sources */,
 				A501CD59208507C600B470C8 /* GameViewController.swift in Sources */,
+				A501CD85208534C900B470C8 /* Elements.swift in Sources */,
 				A501CD51208507C600B470C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
