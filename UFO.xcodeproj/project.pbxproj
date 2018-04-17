@@ -18,6 +18,7 @@
 		A501CD6C208507C800B470C8 /* UFOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD6B208507C800B470C8 /* UFOTests.swift */; };
 		A501CD77208507C800B470C8 /* UFOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD76208507C800B470C8 /* UFOUITests.swift */; };
 		A501CD85208534C900B470C8 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD84208534C900B470C8 /* Elements.swift */; };
+		A5FE9AB620863D00008F3FD8 /* ObamaRig_v01.png in Resources */ = {isa = PBXBuildFile; fileRef = A5FE9AB520863D00008F3FD8 /* ObamaRig_v01.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		A501CD76208507C800B470C8 /* UFOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFOUITests.swift; sourceTree = "<group>"; };
 		A501CD78208507C800B470C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A501CD84208534C900B470C8 /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
+		A5FE9AB520863D00008F3FD8 /* ObamaRig_v01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ObamaRig_v01.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				A501CD58208507C600B470C8 /* GameViewController.swift */,
 				A501CD84208534C900B470C8 /* Elements.swift */,
 				A501CD5A208507C600B470C8 /* Main.storyboard */,
+				A5FE9AB520863D00008F3FD8 /* ObamaRig_v01.png */,
 				A501CD5D208507C800B470C8 /* Assets.xcassets */,
 				A501CD5F208507C800B470C8 /* LaunchScreen.storyboard */,
 				A501CD62208507C800B470C8 /* Info.plist */,
@@ -244,6 +247,7 @@
 				A501CD5C208507C600B470C8 /* Main.storyboard in Resources */,
 				A501CD53208507C600B470C8 /* GameScene.sks in Resources */,
 				A501CD5E208507C800B470C8 /* Assets.xcassets in Resources */,
+				A5FE9AB620863D00008F3FD8 /* ObamaRig_v01.png in Resources */,
 				A501CD61208507C800B470C8 /* LaunchScreen.storyboard in Resources */,
 				A501CD55208507C600B470C8 /* Actions.sks in Resources */,
 			);

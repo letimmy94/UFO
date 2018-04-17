@@ -13,6 +13,15 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        Renders the game to correct screen size depending on iDevice
+        let scene = GameScene(size: view.bounds.size)
+        let skView = view as! SKView
+        skView.showsFPS = false
+        skView.showsNodeCount = false
+//        Allows developer to place objects how they want, not automatically
+        skView.ignoresSiblingOrder = false
+        scene.scaleMode = .resizeFill
+        skView.presentScene(scene)
         
     }
     
