@@ -55,6 +55,14 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             background.size = (self.view?.bounds.size)!
             self.addChild(background)
         }
+//        setup to create ufo
+        uFOSprites.append(uFOAtlas.textureNamed("obama"))
+        
+        self.uFO = createUFO()
+        self.addChild(uFO)
+        
+        let animateuFO = SKAction.animate(with: self.uFOSprites, timePerFrame: 0.1)
+        self.repeatActionUFO = SKAction.repeatForever(animateuFO)
     }
     override func didMove(to view: SKView) {
         createScene()
