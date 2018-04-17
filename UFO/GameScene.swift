@@ -56,4 +56,23 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             self.addChild(background)
         }
     }
+    override func didMove(to view: SKView) {
+        createScene()
+    }
+    // don't totally get this, but this tells the background how to move. Spritekit is complicated as all hell.
+    override func update(_ currentTime: TimeInterval) {
+        // Called before each frame is rendered
+        if isGameStarted == true{
+            if isDied == false{
+                enumerateChildNodes(withName: "background", using: ({
+                    (node, error) in
+                    let bg = node as! SKSpriteNode
+                    bg.position = CGPoint(x: bg.position.x - 2, y: bg.position.y)
+                    if bg.position.x <= -bg.size.width {
+                        bg.position = CGPoint(x:bg.position.x + bg.size.width * 2, y:bg.position.y)
+                    }
+                }))
+            }
+        }
+    }
 }
