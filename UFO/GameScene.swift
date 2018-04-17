@@ -35,6 +35,7 @@ func createScene(){
     self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
 //    defines collision interactions between our objects
     self.physicsBody?.categoryBitMask = CollisionBitMask.groundCategory
+//    daniel is going to write the comments
     self.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
     self.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
     self.physicsBody?.isDynamic = false
