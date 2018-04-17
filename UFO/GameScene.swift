@@ -24,10 +24,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 // for game movement:
     var moveAndRemove = SKAction()
     
-    //create the flying object, adding
+//create the flying object, adding
     let flyingObjectAtlas = SKTextureAtlas(named:"player")
-    var flyingObjectSprites = Array()
+    var flyingObjectSprites = Array<SKTexture>()
     var flyingObject = SKSpriteNode()
     var repeatActionFlyingObject = SKAction()
-}
 
+func createScene(){
+    self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+    self.physicsBody?.categoryBitMask = CollisionBitMask.groundCategory
+    self.physicsBody?.collisionBitMask = CollisionBitMask.birdCategory
+    self.physicsBody?.contactTestBitMask = CollisionBitMask.birdCategory
+    self.physicsBody?.isDynamic = false
+    self.physicsBody?.affectedByGravity = false
+    
+    self.physicsWorld.contactDelegate = self
+    self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
+}
+}
