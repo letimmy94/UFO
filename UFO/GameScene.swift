@@ -24,11 +24,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 // for game movement:
     var moveAndRemove = SKAction()
     
-//create the flying object, adding
-    let flyingObjectAtlas = SKTextureAtlas(named:"player")
-    var flyingObjectSprites = Array<SKTexture>()
-    var flyingObject = SKSpriteNode()
-    var repeatActionFlyingObject = SKAction()
+//create the UFO, adding
+    let uFOAtlas = SKTextureAtlas(named:"player")
+    var uFOSprites = Array<SKTexture>()
+    var uFO = SKSpriteNode()
+    var repeatActionUFO = SKAction()
 
     func createScene(){
 //    edgeLoopFrom will create a physics body around the entire screen
