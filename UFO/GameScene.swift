@@ -31,10 +31,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var repeatActionFlyingObject = SKAction()
 
 func createScene(){
+//    edgeLoopFrom will create a physics body around the entire screen
     self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+//    defines collision interactions between our objects
     self.physicsBody?.categoryBitMask = CollisionBitMask.groundCategory
-    self.physicsBody?.collisionBitMask = CollisionBitMask.birdCategory
-    self.physicsBody?.contactTestBitMask = CollisionBitMask.birdCategory
+    self.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+    self.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
     self.physicsBody?.isDynamic = false
     self.physicsBody?.affectedByGravity = false
     

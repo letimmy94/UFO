@@ -1,5 +1,5 @@
 import SpriteKit
-
+//sets collision points
 struct CollisionBitMask {
     static let ufoCategory:UInt32 = 0x1 << 0
     static let wallCategory:UInt32 = 0x1 << 1
