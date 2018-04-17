@@ -31,6 +31,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var uFOSprites = Array<SKTexture>()
     var uFO = SKSpriteNode()
     var repeatActionUFO = SKAction()
+    
+    override func didMove(to view: SKView) {
+        createScene()
+    }
 
     func createScene(){
 //    edgeLoopFrom will create a physics body around the entire screen
@@ -71,9 +75,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         taptoplayLbl = createTaptoplayLabel()
         self.addChild(taptoplayLbl)
     }
-    override func didMove(to view: SKView) {
-        createScene()
-    }
+        
     // don't totally get this, but this tells the background how to move. Spritekit is complicated as all hell.
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
