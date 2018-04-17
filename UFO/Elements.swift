@@ -26,4 +26,25 @@ extension GameScene {
         
         return uFO
     }
+    
+    func createLogo() {
+        logoImg = SKSpriteNode()
+        logoImg = SKSpriteNode(imageNamed: "logo")
+        logoImg.size = CGSize(width: 372, height: 350)
+        logoImg.position = CGPoint(x:self.frame.midX, y:self.frame.midY + 100)
+        logoImg.setScale(0.5)
+        self.addChild(logoImg)
+        logoImg.run(SKAction.scale(to: 1.0, duration: 0.3))
+    }
+    
+    func createTaptoplayLabel() -> SKLabelNode {
+        let taptoplayLbl = SKLabelNode()
+        taptoplayLbl.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
+        taptoplayLbl.text = "Tap dis"
+        taptoplayLbl.fontColor = UIColor(red: 63/255, green: 79/255, blue: 145/255, alpha: 1.0)
+        taptoplayLbl.zPosition = 5
+        taptoplayLbl.fontSize = 20
+        taptoplayLbl.fontName = "HelveticaNeue"
+        return taptoplayLbl
+    }
 }

@@ -21,6 +21,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var restartBtn = SKSpriteNode()
 // squares need to be involved in spritekit
     var squares = SKNode()
+//    logo variable
+    var logoImg = SKSpriteNode()
 // for game movement:
     var moveAndRemove = SKAction()
     
@@ -45,7 +47,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
-        // create a repeating / scrolling background.
+// create a repeating / scrolling background.
         for i in 0..<2
         {
             let background = SKSpriteNode(imageNamed: "ufobg")
@@ -63,6 +65,11 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         let animateuFO = SKAction.animate(with: self.uFOSprites, timePerFrame: 0.1)
         self.repeatActionUFO = SKAction.repeatForever(animateuFO)
+        
+        createLogo()
+        
+        taptoplayLbl = createTaptoplayLabel()
+        self.addChild(taptoplayLbl)
     }
     override func didMove(to view: SKView) {
         createScene()
