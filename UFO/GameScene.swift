@@ -75,10 +75,33 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         taptoplayLbl = createTaptoplayLabel()
         self.addChild(taptoplayLbl)
     }
-        
-    // don't totally get this, but this tells the background how to move. Spritekit is complicated as all hell.
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isGameStarted == false{
+            //1
+            isGameStarted =  true
+            uFO.physicsBody?.affectedByGravity = true
+            //2
+            logoImg.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
+                self.logoImg.removeFromParent()
+            })
+            taptoplayLbl.removeFromParent()
+            //3
+            self.uFO.run(repeatActionUFO)
+            
+            uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+        } else {
+            //4
+            if isDied == false {
+                uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            }
+        }
+    }
+// don't totally get this, but this tells the background how to move. Spritekit is complicated as all hell.
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+// Called before each frame is rendered
         if isGameStarted == true{
             if isDied == false{
                 enumerateChildNodes(withName: "background", using: ({
