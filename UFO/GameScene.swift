@@ -137,7 +137,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
         }
     }
-    func didStart(_ contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         let firstObject = contact.bodyA
         let secondObject = contact.bodyB
         
@@ -147,14 +147,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 node.speed = 0
                 self.removeAllActions()
             }))
-            if isDied == false{
-                isDied = true
+//            if isDied == false{
+//                isDied = true
 //                createRestartBtn()
 //                pauseBtn.removeFromParent()
-                self.uFO.removeAllActions()
-            }
-            
+//                self.uFO.removeAllActions()
+//            }
         }
-        
-        }
+    }
 }
