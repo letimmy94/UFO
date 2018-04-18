@@ -55,6 +55,7 @@ extension GameScene {
 //          at some point we should create a randomize color function here.
         let blockOne = SKSpriteNode(imageNamed: "green")
         let blockTwo = SKSpriteNode(imageNamed: "darkblue")
+        let blockThree = SKSpriteNode(imageNamed: "red")
         
         blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
 //          physics!!
@@ -74,6 +75,15 @@ extension GameScene {
         blockTwo.physicsBody?.isDynamic = false
         blockTwo.physicsBody?.affectedByGravity = false
         
+        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height + 400)
+        blockThree.physicsBody = SKPhysicsBody(rectangleOf: blockThree.size)
+        blockThree.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
+        blockThree.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+        blockThree.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
+        blockThree.physicsBody?.isDynamic = true
+        blockThree.physicsBody?.affectedByGravity = true
+        
+        block.addChild(blockThree)
         block.addChild(blockOne)
         block.addChild(blockTwo)
         
