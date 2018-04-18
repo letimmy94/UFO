@@ -56,6 +56,7 @@ extension GameScene {
         let blockOne = SKSpriteNode(imageNamed: "green")
         let blockTwo = SKSpriteNode(imageNamed: "darkblue")
         let blockThree = SKSpriteNode(imageNamed: "red")
+        let blockFour = SKSpriteNode(imageNamed: "yellow")
         
         blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
 //          physics!!
@@ -67,7 +68,7 @@ extension GameScene {
         blockOne.physicsBody?.affectedByGravity = false
         
         
-        blockTwo.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 400)
+        blockTwo.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 450)
         blockTwo.physicsBody = SKPhysicsBody(rectangleOf: blockTwo.size)
         blockTwo.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockTwo.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
@@ -75,7 +76,7 @@ extension GameScene {
         blockTwo.physicsBody?.isDynamic = false
         blockTwo.physicsBody?.affectedByGravity = false
         
-        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height + 400)
+        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height + 500)
         blockThree.physicsBody = SKPhysicsBody(rectangleOf: blockThree.size)
         blockThree.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockThree.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
@@ -83,14 +84,24 @@ extension GameScene {
         blockThree.physicsBody?.isDynamic = true
         blockThree.physicsBody?.affectedByGravity = true
         
-        block.addChild(blockThree)
+//        blockFour.position = CGPoint(x: self.frame.width + 25, y: self.frame.height + 1000)
+//        blockFour.physicsBody = SKPhysicsBody(rectangleOf: blockFour.size)
+//        blockFour.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
+//        blockFour.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+//        blockFour.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
+//        blockFour.physicsBody?.isDynamic = true
+//        blockFour.physicsBody?.affectedByGravity = true
+        
         block.addChild(blockOne)
         block.addChild(blockTwo)
+        block.addChild(blockThree)
+//        block.addChild(blockFour)
         
         block.zPosition = 1
 //          spawns random blocks
-        let randomBlockPosition = random(min: -450, max: 50)
+        let randomBlockPosition = random(min: -650, max: 100)
         block.position.y = block.position.y +  randomBlockPosition
+//        block.position.x = block.position.x + randomBlockPosition
         
         block.run(moveAndRemove)
         
