@@ -64,7 +64,7 @@ extension GameScene {
         
         block.zPosition = 1
         
-        let randomBlockPosition = random(min: -780, max: 180)
+        let randomBlockPosition = random(min: -780, max: 100)
         block.position.y = block.position.y +  randomBlockPosition
         
         block.run(moveAndRemove)
@@ -79,7 +79,7 @@ extension GameScene {
     }
 }
 
-//
+// end game. GAME SHOULD END WHEN THEY TOUCH.s
 // restart button
 // pause button?
 // score ?
