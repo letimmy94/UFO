@@ -63,14 +63,14 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         }
 //        setup to create ufo
         uFOSprites.append(uFOAtlas.textureNamed("obama"))
-        uFOSprites.append(uFOAtlas.textureNamed("obama1"))
-        uFOSprites.append(uFOAtlas.textureNamed("obama2"))
+//        uFOSprites.append(uFOAtlas.textureNamed("obama1"))
+//        uFOSprites.append(uFOAtlas.textureNamed("obama2"))
         
         self.uFO = createUFO()
         self.addChild(uFO)
         
-        let animateuFO = SKAction.animate(with: self.uFOSprites, timePerFrame: 1)
-        self.repeatActionUFO = SKAction.repeatForever(animateuFO)
+//        let animateuFO = SKAction.animate(with: self.uFOSprites, timePerFrame: 1)
+//        self.repeatActionUFO = SKAction.repeatForever(animateuFO)
         
         createLogo()
         
@@ -103,7 +103,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
 
-            let distance = CGFloat(self.frame.width + block.frame.width)
+            let distance = CGFloat(self.frame.width + block.frame.width + 20)
             let moveBlock = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
             let removeBlock = SKAction.removeFromParent()
             moveAndRemove = SKAction.sequence([moveBlock, removeBlock])
@@ -137,4 +137,24 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
         }
     }
+    func didStart(_ contact: SKPhysicsContact) {
+        let firstObject = contact.bodyA
+        let secondObject = contact.bodyB
+        
+        if firstObject.categoryBitMask == CollisionBitMask.ufoCategory && secondObject.categoryBitMask == CollisionBitMask.blockCategory || firstObject.categoryBitMask == CollisionBitMask.blockCategory && secondObject.categoryBitMask == CollisionBitMask.ufoCategory || firstObject.categoryBitMask == CollisionBitMask.ufoCategory && secondObject.categoryBitMask == CollisionBitMask.groundCategory || firstObject.categoryBitMask == CollisionBitMask.groundCategory && secondObject.categoryBitMask == CollisionBitMask.ufoCategory{
+            enumerateChildNodes(withName: "block", using: ({
+                (node, error) in
+                node.speed = 0
+                self.removeAllActions()
+            }))
+            if isDied == false{
+                isDied = true
+//                createRestartBtn()
+//                pauseBtn.removeFromParent()
+                self.uFO.removeAllActions()
+            }
+            
+        }
+        
+        }
 }

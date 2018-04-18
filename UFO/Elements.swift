@@ -50,17 +50,22 @@ extension GameScene {
         return taptoplayLbl
     }
     func createBlock() -> SKNode {
+        block = SKNode()
+        block.name = "block"
 //          at some point we should create a randomize function here.
-        let block = SKSpriteNode(imageNamed: "green")
+        let blockOne = SKSpriteNode(imageNamed: "green")
+       
         
-        block.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
+        blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
 //          physics!!
-        block.physicsBody = SKPhysicsBody(rectangleOf: block.size)
-        block.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
-        block.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
-        block.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
-        block.physicsBody?.isDynamic = false
-        block.physicsBody?.affectedByGravity = false
+        blockOne.physicsBody = SKPhysicsBody(rectangleOf: blockOne.size)
+        blockOne.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
+        blockOne.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+        blockOne.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
+        blockOne.physicsBody?.isDynamic = false
+        blockOne.physicsBody?.affectedByGravity = false
+        
+        block.addChild(blockOne)
         
         block.zPosition = 1
 //          spawns random blocks
