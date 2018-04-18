@@ -63,11 +63,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         }
 //        setup to create ufo
         uFOSprites.append(uFOAtlas.textureNamed("obama"))
+        uFOSprites.append(uFOAtlas.textureNamed("obama1"))
+        uFOSprites.append(uFOAtlas.textureNamed("obama2"))
         
         self.uFO = createUFO()
         self.addChild(uFO)
         
-        let animateuFO = SKAction.animate(with: self.uFOSprites, timePerFrame: 0.1)
+        let animateuFO = SKAction.animate(with: self.uFOSprites, timePerFrame: 1)
         self.repeatActionUFO = SKAction.repeatForever(animateuFO)
         
         createLogo()

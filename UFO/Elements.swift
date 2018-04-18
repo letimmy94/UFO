@@ -12,7 +12,7 @@ extension GameScene {
 //        creating sprite node for UFO
         let uFO = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed("obama"))
         uFO.size = CGSize(width: 50, height: 67)
-        // middle of frame.
+//        middle of frame.
         uFO.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
 //        SKPhysicsBody objects allow it to behave like real world physics
         uFO.physicsBody = SKPhysicsBody(circleOfRadius: uFO.size.width / 2)
@@ -79,7 +79,7 @@ extension GameScene {
     }
 }
 
-// end game. GAME SHOULD END WHEN THEY TOUCH.s
+// end game. GAME SHOULD END WHEN THEY TOUCH
 // restart button
 // pause button?
 // score ?
