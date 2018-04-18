@@ -50,8 +50,9 @@ extension GameScene {
         return taptoplayLbl
     }
     func createBlock() -> SKNode {
-        
+        //at some point we should create a randomize function here.
         let block = SKSpriteNode(imageNamed: "darkblue")
+        
         block.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
         //physics!!
         block.physicsBody = SKPhysicsBody(rectangleOf: block.size)
@@ -63,7 +64,7 @@ extension GameScene {
         
         block.zPosition = 1
         
-        let randomBlockPosition = random(min: -400, max: 400)
+        let randomBlockPosition = random(min: -780, max: 180)
         block.position.y = block.position.y +  randomBlockPosition
         
         block.run(moveAndRemove)
