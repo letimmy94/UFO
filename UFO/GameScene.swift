@@ -20,7 +20,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 //restart
     var restartBtn = SKSpriteNode()
 // squares need to be involved in spritekit
-    var squares = SKNode()
+    var block = SKNode()
 //    logo variable
     var logoImg = SKSpriteNode()
 // for game movement:
@@ -88,6 +88,26 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             taptoplayLbl.removeFromParent()
 //            animates the ufo
             self.uFO.run(repeatActionUFO)
+            
+            // create the block animation -- needed a lot of help from this tutorial http://sweettutos.com/2017/03/09/build-your-own-flappy-bird-game-with-swift-3-and-spritekit/ on the next ~20 lines
+            let spawn = SKAction.run({
+                () in
+                self.block = self.createBlock()
+                self.addChild(self.block)
+            })
+            //2
+            let delay = SKAction.wait(forDuration: 2)
+            let SpawnDelay = SKAction.sequence([spawn, delay])
+            let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
+            self.run(spawnDelayForever)
+
+            let distance = CGFloat(self.frame.width + block.frame.width)
+            let moveBlock = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
+            let removeBlock = SKAction.removeFromParent()
+            moveAndRemove = SKAction.sequence([moveBlock, removeBlock])
+            
+            
+            
             
             uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))

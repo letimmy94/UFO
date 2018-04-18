@@ -2,7 +2,8 @@ import SpriteKit
 //sets collision points
 struct CollisionBitMask {
     static let ufoCategory:UInt32 = 0x1 << 0
-    static let wallCategory:UInt32 = 0x1 << 1
+    // semanticly this needed to make more sense. wallCategory => blockCategory.
+    static let blockCategory:UInt32 = 0x1 << 1
     static let groundCategory:UInt32 = 0x1 << 3
 }
 
@@ -11,6 +12,7 @@ extension GameScene {
 //        creating sprite node for UFO
         let uFO = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed("obama"))
         uFO.size = CGSize(width: 50, height: 67)
+        // middle of frame.
         uFO.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
 //        SKPhysicsBody objects allow it to behave like real world physics
         uFO.physicsBody = SKPhysicsBody(circleOfRadius: uFO.size.width / 2)
@@ -18,8 +20,8 @@ extension GameScene {
         uFO.physicsBody?.restitution = 0
 //        collisionBitMasks prevents objects from going through them
         uFO.physicsBody?.categoryBitMask = CollisionBitMask.ufoCategory
-        uFO.physicsBody?.collisionBitMask = CollisionBitMask.wallCategory | CollisionBitMask.groundCategory
-        uFO.physicsBody?.contactTestBitMask = CollisionBitMask.wallCategory | CollisionBitMask.groundCategory
+        uFO.physicsBody?.collisionBitMask = CollisionBitMask.blockCategory | CollisionBitMask.groundCategory
+        uFO.physicsBody?.contactTestBitMask = CollisionBitMask.blockCategory | CollisionBitMask.groundCategory
 //        add gravity effect upon our ufo
         uFO.physicsBody?.affectedByGravity = false
         uFO.physicsBody?.isDynamic = true
@@ -47,4 +49,36 @@ extension GameScene {
         taptoplayLbl.fontName = "HelveticaNeue"
         return taptoplayLbl
     }
+    func createBlock() -> SKNode {
+        
+        let block = SKSpriteNode(imageNamed: "darkblue")
+        block.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
+        //physics!!
+        block.physicsBody = SKPhysicsBody(rectangleOf: block.size)
+        block.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
+        block.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+        block.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
+        block.physicsBody?.isDynamic = false
+        block.physicsBody?.affectedByGravity = false
+        
+        block.zPosition = 1
+        
+        let randomBlockPosition = random(min: -400, max: 400)
+        block.position.y = block.position.y +  randomBlockPosition
+        
+        block.run(moveAndRemove)
+        
+        return block
+    }
+    func random() -> CGFloat{
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    func random(min : CGFloat, max : CGFloat) -> CGFloat{
+        return random() * (max - min) + min
+    }
 }
+
+//
+// restart button
+// pause button?
+// score ?
