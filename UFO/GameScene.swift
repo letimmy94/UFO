@@ -89,13 +89,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 //            animates the ufo
             self.uFO.run(repeatActionUFO)
             
-            // create the block animation -- needed a lot of help from this tutorial http://sweettutos.com/2017/03/09/build-your-own-flappy-bird-game-with-swift-3-and-spritekit/ on the next ~20 lines
+//          create the block animation -- needed a lot of help from this tutorial http://sweettutos.com/2017/03/09/build-your-own-flappy-bird-game-with-swift-3-and-spritekit/ on the next ~20 lines
             let spawn = SKAction.run({
                 () in
                 self.block = self.createBlock()
                 self.addChild(self.block)
             })
-            //2
+//          spawn frequency
             let delay = SKAction.wait(forDuration: 2)
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
