@@ -78,21 +78,21 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isGameStarted == false{
-            //1
+//            sets the ufo to be affected by gravity
             isGameStarted =  true
             uFO.physicsBody?.affectedByGravity = true
-            //2
+//            removes logo when game begins
             logoImg.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
                 self.logoImg.removeFromParent()
             })
             taptoplayLbl.removeFromParent()
-            //3
+//            animates the ufo
             self.uFO.run(repeatActionUFO)
             
             uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
         } else {
-            //4
+//            ufo bounces unless it "dies"
             if isDied == false {
                 uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
