@@ -52,9 +52,9 @@ extension GameScene {
     func createBlock() -> SKNode {
         block = SKNode()
         block.name = "block"
-//          at some point we should create a randomize function here.
+//          at some point we should create a randomize color function here.
         let blockOne = SKSpriteNode(imageNamed: "green")
-       
+        let blockTwo = SKSpriteNode(imageNamed: "darkblue")
         
         blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
 //          physics!!
@@ -65,11 +65,21 @@ extension GameScene {
         blockOne.physicsBody?.isDynamic = false
         blockOne.physicsBody?.affectedByGravity = false
         
+        
+        blockTwo.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 400)
+        blockTwo.physicsBody = SKPhysicsBody(rectangleOf: blockTwo.size)
+        blockTwo.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
+        blockTwo.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+        blockTwo.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
+        blockTwo.physicsBody?.isDynamic = false
+        blockTwo.physicsBody?.affectedByGravity = false
+        
         block.addChild(blockOne)
+        block.addChild(blockTwo)
         
         block.zPosition = 1
 //          spawns random blocks
-        let randomBlockPosition = random(min: -750, max: 50)
+        let randomBlockPosition = random(min: -450, max: 50)
         block.position.y = block.position.y +  randomBlockPosition
         
         block.run(moveAndRemove)
