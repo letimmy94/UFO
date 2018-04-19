@@ -15,6 +15,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 //    let music = SKAction.playSoundFileNamed("Komiku_-_54_-_Escaping_like_Indiana_Jones.mp3", waitForCompletion: false)
     
 // when we do scores... add them here
+    var score = Int(0)
+    var scoreLbl = SKLabelNode()
 //start
     var taptoplayLbl = SKLabelNode()
 //restart
@@ -71,6 +73,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 //        let animateuFO = SKAction.animate(with: self.uFOSprites, timePerFrame: 1)
 //        self.repeatActionUFO = SKAction.repeatForever(animateuFO)
         
+        scoreLbl = createScoreLabel()
+        self.addChild(scoreLbl)
         createLogo()
         
         taptoplayLbl = createTaptoplayLabel()
@@ -94,6 +98,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 () in
                 self.block = self.createBlock()
                 self.addChild(self.block)
+                self.score += 1
+                self.scoreLbl.text = "\(self.score)"
             })
 //          spawn frequency
             let delay = SKAction.wait(forDuration: 2)
@@ -106,16 +112,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             let removeBlock = SKAction.removeFromParent()
             moveAndRemove = SKAction.sequence([moveBlock, removeBlock])
             
-            
-            
-            
             uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
+            uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
         } else {
 //            ufo bounces unless it "dies"
             if isDied == false {
                 uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
+                uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
 //      restart functionality
@@ -141,6 +144,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
         }
     }
+    
 //      the headache function of all headache functions. DID BEGIN NOT DID START. Sigh.
     func didBegin(_ contact: SKPhysicsContact) {
         let firstObject = contact.bodyA

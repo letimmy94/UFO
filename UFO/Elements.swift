@@ -117,11 +117,22 @@ extension GameScene {
     func createRestartBtn() {
         restartBtn = SKSpriteNode(imageNamed: "restart")
         restartBtn.size = CGSize(width:100, height:100)
-        restartBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 2 / 4)
+        restartBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 2)
         restartBtn.zPosition = 6
         restartBtn.setScale(0)
         self.addChild(restartBtn)
         restartBtn.run(SKAction.scale(to: 1.0, duration: 0.3))
+    }
+    //score
+    func createScoreLabel() -> SKLabelNode {
+        let scoreLbl = SKLabelNode()
+        scoreLbl.position = CGPoint(x: self.frame.width / 12.5, y: self.frame.height / 2 + self.frame.height / 2.33)
+        scoreLbl.text = "\(score)"
+        scoreLbl.zPosition = 5
+        scoreLbl.fontSize = 50
+        scoreLbl.fontName = "HelveticaNeue-Bold"
+    
+        return scoreLbl
     }
 }
 
