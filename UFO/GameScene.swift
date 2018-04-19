@@ -50,7 +50,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.physicsBody?.affectedByGravity = false
         
         self.physicsWorld.contactDelegate = self
-        self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
 // create a repeating / scrolling background.
         for i in 0..<2
         {
@@ -84,13 +83,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             isGameStarted =  true
             uFO.physicsBody?.affectedByGravity = true
 //            removes logo when game begins
-            logoImg.run(SKAction.scale(to: 0.5, duration: 0.3), completion: {
+            logoImg.run(SKAction.scale(to: 0.1, duration: 0.3), completion: {
                 self.logoImg.removeFromParent()
             })
             taptoplayLbl.removeFromParent()
 //            animates the ufo
             self.uFO.run(repeatActionUFO)
-            
 //          create the block animation -- needed a lot of help from this tutorial http://sweettutos.com/2017/03/09/build-your-own-flappy-bird-game-with-swift-3-and-spritekit/ on the next ~20 lines
             let spawn = SKAction.run({
                 () in
@@ -112,24 +110,24 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             
             
             uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
         } else {
 //            ufo bounces unless it "dies"
             if isDied == false {
                 uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+                uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
             }
         }
-        // restart functionality
+//      restart functionality
         for touch in touches{
             let location = touch.location(in: self)
             if isDied == true { restartScene() }
             }
         }
     
-// don't totally get this, but this tells the background how to move. Spritekit is complicated as all hell.
+//      don't totally get this, but this tells the background how to move. Spritekit is complicated as          all hell.
     override func update(_ currentTime: TimeInterval) {
-// Called before each frame is rendered
+//      Called before each frame is rendered
         if isGameStarted == true{
             if isDied == false{
                 enumerateChildNodes(withName: "background", using: ({
@@ -143,7 +141,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
         }
     }
-    // the headache function of all headache functions. DID BEGIN NOT DID START. Sigh.
+//      the headache function of all headache functions. DID BEGIN NOT DID START. Sigh.
     func didBegin(_ contact: SKPhysicsContact) {
         let firstObject = contact.bodyA
         let secondObject = contact.bodyB

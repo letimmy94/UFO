@@ -117,7 +117,7 @@ extension GameScene {
     func createRestartBtn() {
         restartBtn = SKSpriteNode(imageNamed: "restart")
         restartBtn.size = CGSize(width:100, height:100)
-        restartBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 2 / 3)
+        restartBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 2 / 4)
         restartBtn.zPosition = 6
         restartBtn.setScale(0)
         self.addChild(restartBtn)
