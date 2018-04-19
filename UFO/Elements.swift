@@ -84,7 +84,7 @@ extension GameScene {
         blockThree.physicsBody?.isDynamic = true
         blockThree.physicsBody?.affectedByGravity = true
 
-        blockFour.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 4 - 25)
+        blockFour.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 4 - 32)
         blockFour.physicsBody = SKPhysicsBody(rectangleOf: blockFour.size)
         blockFour.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockFour.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
@@ -99,7 +99,7 @@ extension GameScene {
         
         block.zPosition = 1
 //          spawns random blocks
-        let randomBlockPosition = random(min: -100, max: 100)
+        let randomBlockPosition = random(min: -200, max: 200)
         block.position.y = block.position.y +  randomBlockPosition
 //        block.position.x = block.position.x + randomBlockPosition
         
