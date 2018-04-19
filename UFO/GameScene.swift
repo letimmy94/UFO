@@ -160,7 +160,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 isDied = true
                 createRestartBtn()
                 self.uFO.removeAllActions()
-                score = 0
             }
         }
     }
@@ -169,6 +168,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.removeAllActions()
         isDied = false
         isGameStarted = false
+        score = 0
         createScene()
     }
 }
