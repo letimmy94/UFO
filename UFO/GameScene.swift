@@ -12,7 +12,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 
     var isGameStarted = Bool(false)
     var isDied = Bool(false)
-    let music = SKAction.playSoundFileNamed("Komiku_-_54_-_Escaping_like_Indiana_Jones.mp3", waitForCompletion: false)
+//    let music = SKAction.playSoundFileNamed("Komiku_-_54_-_Escaping_like_Indiana_Jones.mp3", waitForCompletion: false)
     
 // when we do scores... add them here
 //start
@@ -120,7 +120,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
         }
-    }
+        // restart functionality
+        for touch in touches{
+            let location = touch.location(in: self)
+            if isDied == true { restartScene() }
+            }
+        }
+    
 // don't totally get this, but this tells the background how to move. Spritekit is complicated as all hell.
     override func update(_ currentTime: TimeInterval) {
 // Called before each frame is rendered
@@ -150,9 +156,16 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }))
             if isDied == false{
                 isDied = true
-//                createRestartBtn()
+                createRestartBtn()
                 self.uFO.removeAllActions()
             }
         }
+    }
+    func restartScene(){
+        self.removeAllChildren()
+        self.removeAllActions()
+        isDied = false
+        isGameStarted = false
+        createScene()
     }
 }

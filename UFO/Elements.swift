@@ -55,10 +55,10 @@ extension GameScene {
 //          at some point we should create a randomize color function here.
         let blockOne = SKSpriteNode(imageNamed: "green")
         let blockTwo = SKSpriteNode(imageNamed: "darkblue")
-        let blockThree = SKSpriteNode(imageNamed: "red")
+//        let blockThree = SKSpriteNode(imageNamed: "red")
         let blockFour = SKSpriteNode(imageNamed: "yellow")
         
-        blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 50)
+        blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 25)
 //          physics!!
         blockOne.physicsBody = SKPhysicsBody(rectangleOf: blockOne.size)
         blockOne.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
@@ -68,23 +68,23 @@ extension GameScene {
         blockOne.physicsBody?.affectedByGravity = false
         
         
-        blockTwo.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 350)
+        blockTwo.position = CGPoint(x: self.frame.width + 25, y: self.frame.height * 5 / 8 - 25 )
         blockTwo.physicsBody = SKPhysicsBody(rectangleOf: blockTwo.size)
         blockTwo.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockTwo.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
         blockTwo.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
         blockTwo.physicsBody?.isDynamic = false
         blockTwo.physicsBody?.affectedByGravity = false
-        
-        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height + 400)
-        blockThree.physicsBody = SKPhysicsBody(rectangleOf: blockThree.size)
-        blockThree.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
-        blockThree.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
-        blockThree.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
-        blockThree.physicsBody?.isDynamic = true
-        blockThree.physicsBody?.affectedByGravity = true
-        
-        blockFour.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 700)
+
+//        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height + 400)
+//        blockThree.physicsBody = SKPhysicsBody(rectangleOf: blockThree.size)
+//        blockThree.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
+//        blockThree.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+//        blockThree.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
+//        blockThree.physicsBody?.isDynamic = true
+//        blockThree.physicsBody?.affectedByGravity = true
+//
+        blockFour.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 4 - 25)
         blockFour.physicsBody = SKPhysicsBody(rectangleOf: blockFour.size)
         blockFour.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockFour.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
@@ -94,7 +94,7 @@ extension GameScene {
         
         block.addChild(blockOne)
         block.addChild(blockTwo)
-        block.addChild(blockThree)
+//        block.addChild(blockThree)
         block.addChild(blockFour)
         
         block.zPosition = 1
@@ -112,6 +112,16 @@ extension GameScene {
     }
     func random(min : CGFloat, max : CGFloat) -> CGFloat{
         return random() * (max - min) + min
+    }
+// restart button
+    func createRestartBtn() {
+        restartBtn = SKSpriteNode(imageNamed: "restart")
+        restartBtn.size = CGSize(width:100, height:100)
+        restartBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 2 / 3)
+        restartBtn.zPosition = 6
+        restartBtn.setScale(0)
+        self.addChild(restartBtn)
+        restartBtn.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
 }
 
