@@ -55,7 +55,7 @@ extension GameScene {
 //          at some point we should create a randomize color function here.
         let blockOne = SKSpriteNode(imageNamed: "green")
         let blockTwo = SKSpriteNode(imageNamed: "darkblue")
-//        let blockThree = SKSpriteNode(imageNamed: "red")
+        let blockThree = SKSpriteNode(imageNamed: "red")
         let blockFour = SKSpriteNode(imageNamed: "yellow")
         
         blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 25)
@@ -76,14 +76,14 @@ extension GameScene {
         blockTwo.physicsBody?.isDynamic = false
         blockTwo.physicsBody?.affectedByGravity = false
 
-//        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height + 400)
-//        blockThree.physicsBody = SKPhysicsBody(rectangleOf: blockThree.size)
-//        blockThree.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
-//        blockThree.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
-//        blockThree.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
-//        blockThree.physicsBody?.isDynamic = true
-//        blockThree.physicsBody?.affectedByGravity = true
-//
+        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
+        blockThree.physicsBody = SKPhysicsBody(rectangleOf: blockThree.size)
+        blockThree.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
+        blockThree.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
+        blockThree.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
+        blockThree.physicsBody?.isDynamic = true
+        blockThree.physicsBody?.affectedByGravity = true
+
         blockFour.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 4 - 25)
         blockFour.physicsBody = SKPhysicsBody(rectangleOf: blockFour.size)
         blockFour.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
@@ -94,7 +94,7 @@ extension GameScene {
         
         block.addChild(blockOne)
         block.addChild(blockTwo)
-//        block.addChild(blockThree)
+        block.addChild(blockThree)
         block.addChild(blockFour)
         
         block.zPosition = 1
