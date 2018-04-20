@@ -44,7 +44,7 @@ extension GameScene {
         taptoplayLbl.text = "Tap dis"
         taptoplayLbl.fontColor = UIColor(red: 63/255, green: 79/255, blue: 145/255, alpha: 1.0)
         taptoplayLbl.zPosition = 5
-        taptoplayLbl.fontSize = 20
+        taptoplayLbl.fontSize = 35
         taptoplayLbl.fontName = "HelveticaNeue"
         return taptoplayLbl
     }

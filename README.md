@@ -1,6 +1,9 @@
 # UFO
 
 UFO is our attempt at a [Flappy Bird](https://en.wikipedia.org/wiki/Flappy_Bird) clone.
+This game features a floating Obama head traversing through a world of squares.
+
+How did he get there? What is his story? Well apparently after leaving office, he was lost in this abyss and disembodied. Now his head has special powers and he needs to get by these squares to come back, change the constitution, and get his third term. Easy peasy.
 
 ## Requirements
 
@@ -26,6 +29,23 @@ UFO is our attempt at a [Flappy Bird](https://en.wikipedia.org/wiki/Flappy_Bird)
 * [Swift 4.1](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html)
 * [SpriteKit](https://developer.apple.com/documentation/spritekit)
 * Love
+
+## Our approach
+
+We knew we wanted to use a mobile app but didn't have the tools in our wheelhouse with our background in of JS and Ruby. And thus we needed to learn Swift.
+
+Swift was a new language for us, but we figured if Rome was built in a day we could learn it in a day. And so we did.
+
+But in actuality there was a ton of googling, a lot of example finding, and then debugging aplenty. So basically a standard week for a developer.
+
+## Next Steps
+
+* Implement high score locally and globally.
+* Character selection.
+* On collision we want our UFO to have a reaction.
+* On press we want our UFO to make some kind of face.
+* Boxes should scroll onto the screen, not just appear on the edge.
+* Buy a developer account && deploy to the AppStore
 
 ## Authors
 
