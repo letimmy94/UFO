@@ -31,7 +31,7 @@ extension GameScene {
     func createLogo() {
         logoImg = SKSpriteNode()
         logoImg = SKSpriteNode(imageNamed: "logo")
-        logoImg.size = CGSize(width: 372, height: 350)
+        logoImg.size = CGSize(width: 236, height: 350)
         logoImg.position = CGPoint(x:self.frame.midX, y:self.frame.midY + 100)
         logoImg.setScale(0.5)
         self.addChild(logoImg)
