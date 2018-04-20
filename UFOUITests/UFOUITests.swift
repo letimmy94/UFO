@@ -2,7 +2,7 @@
 //  UFOUITests.swift
 //  UFOUITests
 //
-//  Created by Timmy Le on 4/16/18.
+//  Created by Timmy Le and Daniel Freudberg on 4/16/18.
 //  Copyright © 2018 Red Blue Green. All rights reserved.
 //
 
