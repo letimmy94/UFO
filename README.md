@@ -63,7 +63,7 @@ But in actuality there was a ton of googling, a lot of example finding, and then
 * [Aspect Ratio Calculator](https://andrew.hedges.name/experiments/aspect_ratio/) - When we couldn't do math.
 * [Namko Art's](https://namkoart.deviantart.com/) [_Myth of Life_](https://namkoart.deviantart.com/art/Myth-of-Life-102607782)
 
-####References
+###References
 
 * [Spritekit](https://developer.apple.com/documentation/spritekit)
 * [Spritekit SK Physics Body](https://developer.apple.com/documentation/spritekit/skphysicsbody)
