@@ -56,7 +56,7 @@ But in actuality there was a ton of googling, a lot of example finding, and then
 
 * Zakk for forcing us to work together.
 * New Perry for being named Jimmy.
-* Meg for making amazing jokes that often times only Daniel understood and went over everyone elses heads.
+* Meg for making amazing jokes that often times only Daniel understood and went over everyone elses' head.
 * Old blue.
 * Our board of directors.
 * [The Dewy Show](https://www.youtube.com/user/dewy8show) creators for their generous donation of a cartoon style President Barack Obama face.
