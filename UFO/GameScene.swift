@@ -83,6 +83,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isGameStarted == false{
+                    score = -1
 //            sets the ufo to be affected by gravity
             isGameStarted =  true
             uFO.physicsBody?.affectedByGravity = true
@@ -107,8 +108,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
 
-            let distance = CGFloat(self.frame.width + block.frame.width + 20)
-            let moveBlock = SKAction.moveBy(x: -distance - 100, y: 0, duration: TimeInterval(0.008 * distance))
+            let distance = CGFloat(self.frame.width + block.frame.width + 70)
+            let moveBlock = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
             let removeBlock = SKAction.removeFromParent()
             moveAndRemove = SKAction.sequence([moveBlock, removeBlock])
             
@@ -168,7 +169,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.removeAllActions()
         isDied = false
         isGameStarted = false
-        score = 0
         createScene()
     }
 }
