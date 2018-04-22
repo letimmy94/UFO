@@ -57,7 +57,7 @@ extension GameScene {
         let blockThree = SKSpriteNode(imageNamed: "red")
         let blockFour = SKSpriteNode(imageNamed: "yellow")
         
-        blockOne.position = CGPoint(x: self.frame.width + 25, y: self.frame.height - 25)
+        blockOne.position = CGPoint(x: self.frame.width + 50, y: self.frame.height - 25)
         //          physics!!
         blockOne.physicsBody = SKPhysicsBody(rectangleOf: blockOne.size)
         blockOne.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
@@ -67,21 +67,23 @@ extension GameScene {
         blockOne.physicsBody?.affectedByGravity = false
         
         
-        blockTwo.position = CGPoint(x: self.frame.width + 25, y: self.frame.height * 5 / 8 - 25 )
+        blockTwo.position = CGPoint(x: self.frame.width + 50, y: self.frame.height * 5 / 8 - 25 )
         blockTwo.physicsBody = SKPhysicsBody(rectangleOf: blockTwo.size)
         blockTwo.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockTwo.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
         blockTwo.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
         blockTwo.physicsBody?.isDynamic = false
         blockTwo.physicsBody?.affectedByGravity = false
-        blockThree.position = CGPoint(x: self.frame.width + 25, y: self.frame.height)
+        
+        blockThree.position = CGPoint(x: self.frame.width + 50, y: self.frame.height)
         blockThree.physicsBody = SKPhysicsBody(rectangleOf: blockThree.size)
         blockThree.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockThree.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory
         blockThree.physicsBody?.contactTestBitMask = CollisionBitMask.ufoCategory
         blockThree.physicsBody?.isDynamic = true
         blockThree.physicsBody?.affectedByGravity = true
-        blockFour.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 4 - 32)
+       
+        blockFour.position = CGPoint(x: self.frame.width + 50, y: self.frame.height / 4 - 32)
         blockFour.physicsBody = SKPhysicsBody(rectangleOf: blockFour.size)
         blockFour.physicsBody?.categoryBitMask = CollisionBitMask.blockCategory
         blockFour.physicsBody?.collisionBitMask = CollisionBitMask.ufoCategory

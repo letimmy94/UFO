@@ -108,7 +108,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             self.run(spawnDelayForever)
 
             let distance = CGFloat(self.frame.width + block.frame.width + 20)
-            let moveBlock = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
+            let moveBlock = SKAction.moveBy(x: -distance - 100, y: 0, duration: TimeInterval(0.008 * distance))
             let removeBlock = SKAction.removeFromParent()
             moveAndRemove = SKAction.sequence([moveBlock, removeBlock])
             
