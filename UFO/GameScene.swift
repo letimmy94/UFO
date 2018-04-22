@@ -123,10 +123,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             }
         }
 //      restart functionality
-        for touch in touches{
-            let location = touch.location(in: self)
             if isDied == true { restartScene() }
-            }
         }
     
 //      don't totally get this, but this tells the background how to move. Spritekit is complicated as          all hell.
