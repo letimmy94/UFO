@@ -12,7 +12,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
 
     var isGameStarted = Bool(false)
     var isDied = Bool(false)
-//    let music = SKAction.playSoundFileNamed("Komiku_-_54_-_Escaping_like_Indiana_Jones.mp3", waitForCompletion: false)
+    let music = SKAction.playSoundFileNamed("Komiku_-_54_-_Escaping_like_Indiana_Jones.mp3", waitForCompletion: false)
     
 // when we do scores... add them here
     var score = Int(0)
@@ -33,12 +33,18 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var uFOSprites = Array<SKTexture>()
     var uFO = SKSpriteNode()
     var repeatActionUFO = SKAction()
+    var backgroundMusic: SKAudioNode!
     
     override func didMove(to view: SKView) {
         createScene()
     }
 
     func createScene(){
+        
+        if let musicURL = Bundle.main.url(forResource: "Komiku_-_54_-_Escaping_like_Indiana_Jones", withExtension: "mp3") {
+            backgroundMusic = SKAudioNode(url: musicURL)
+            addChild(backgroundMusic)
+        }
 //    edgeLoopFrom will create a physics body around the entire screen
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
 //    defines collision interactions between our objects
@@ -169,3 +175,4 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         createScene()
     }
 }
+
