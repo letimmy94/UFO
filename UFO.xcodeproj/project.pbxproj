@@ -19,6 +19,7 @@
 		A501CD6C208507C800B470C8 /* UFOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD6B208507C800B470C8 /* UFOTests.swift */; };
 		A501CD77208507C800B470C8 /* UFOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD76208507C800B470C8 /* UFOUITests.swift */; };
 		A501CD85208534C900B470C8 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501CD84208534C900B470C8 /* Elements.swift */; };
+		A52772B2208DEDE300953FB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52772B1208DEDE300953FB9 /* AVFoundation.framework */; };
 		A573226120868718008B83ED /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A573226020868718008B83ED /* player.atlas */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		A501CD76208507C800B470C8 /* UFOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UFOUITests.swift; sourceTree = "<group>"; };
 		A501CD78208507C800B470C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A501CD84208534C900B470C8 /* Elements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements.swift; sourceTree = "<group>"; };
+		A52772B1208DEDE300953FB9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A573226020868718008B83ED /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52772B2208DEDE300953FB9 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +96,7 @@
 				A501CD6A208507C800B470C8 /* UFOTests */,
 				A501CD75208507C800B470C8 /* UFOUITests */,
 				A501CD4E208507C600B470C8 /* Products */,
+				A52772B0208DEDE300953FB9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +145,14 @@
 				A501CD78208507C800B470C8 /* Info.plist */,
 			);
 			path = UFOUITests;
+			sourceTree = "<group>";
+		};
+		A52772B0208DEDE300953FB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A52772B1208DEDE300953FB9 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
