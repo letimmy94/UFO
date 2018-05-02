@@ -40,12 +40,13 @@ But in actuality there was a ton of googling, a lot of example finding, and then
 
 ## Next Steps
 
-* Implement high score locally and globally.
+* Implement high score locally and globally. (In Progress)
 * Character selection.
-* On collision we want our UFO to have a reaction.
-* On press we want our UFO to make some kind of face.
+* On collision we want our UFO to have a reaction. (In Progress)
+* On press we want our UFO to make some kind of face. (In Progress)
 * Boxes should scroll onto the screen, not just appear on the edge.
-* Buy a developer account && deploy to the AppStore
+* Buy a developer account && deploy to the AppStore (In Progress)
+* Settings button (In Progress)
 
 ## Authors
 
