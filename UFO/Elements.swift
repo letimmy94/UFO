@@ -132,8 +132,19 @@ extension GameScene {
         
         return scoreLbl
     }
+    
+    func createHighscoreLabel() -> SKLabelNode {
+        let highscoreLbl = SKLabelNode()
+        highscoreLbl.position = CGPoint(x: self.frame.width - 80, y: self.frame.height - 22)
+        if let highestScore = UserDefaults.standard.object(forKey: "highestScore"){
+            highscoreLbl.text = "High Score: \(highestScore)"
+        } else {
+            highscoreLbl.text = "High Score: 0"
+        }
+        highscoreLbl.zPosition = 5
+        highscoreLbl.fontSize = 15
+        highscoreLbl.fontName = "Helvetica-Bold"
+        return highscoreLbl
+    }
 }
-// end game. GAME SHOULD END WHEN THEY TOUCH
-// restart button
 // pause button?
-// score ?

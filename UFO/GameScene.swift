@@ -34,6 +34,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var uFO = SKSpriteNode()
     var repeatActionUFO = SKAction()
     var backgroundMusic: SKAudioNode!
+    var highscoreLbl = SKLabelNode()
     
     override func didMove(to view: SKView) {
         createScene()
@@ -82,7 +83,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         scoreLbl = createScoreLabel()
         self.addChild(scoreLbl)
         createLogo()
-        
+        highscoreLbl = createHighscoreLabel()
+        self.addChild(highscoreLbl)
         taptoplayLbl = createTaptoplayLabel()
         self.addChild(taptoplayLbl)
     }
@@ -92,7 +94,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                     score = -1
 //            sets the ufo to be affected by gravity
             isGameStarted =  true
-            uFO.physicsBody?.affectedByGravity = true
+            uFO.physicsBody?.affectedByGravity = true 
 //            removes logo when game begins
             logoImg.run(SKAction.scale(to: 0.1, duration: 0.3), completion: {
                 self.logoImg.removeFromParent()
