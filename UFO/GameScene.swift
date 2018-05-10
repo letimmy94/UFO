@@ -88,6 +88,49 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         taptoplayLbl = createTaptoplayLabel()
         self.addChild(taptoplayLbl)
     }
+    func restartScene(){
+        self.removeAllChildren()
+        self.removeAllActions()
+        isDied = false
+        isGameStarted = false
+        createScene()
+    }
+    
+    //      don't totally get this, but this tells the background how to move. Spritekit is complicated as          all hell.
+    override func update(_ currentTime: TimeInterval) {
+        //      Called before each frame is rendered
+        if isGameStarted == true{
+            if isDied == false{
+                enumerateChildNodes(withName: "background", using: ({
+                    (node, error) in
+                    let bg = node as! SKSpriteNode
+                    bg.position = CGPoint(x: bg.position.x - 2, y: bg.position.y)
+                    if bg.position.x <= -bg.size.width {
+                        bg.position = CGPoint(x:bg.position.x + bg.size.width * 2, y:bg.position.y)
+                    }
+                }))
+            }
+        }
+    }
+    
+    //      the headache function of all headache functions. DID BEGIN NOT DID START. Sigh.
+    func didBegin(_ contact: SKPhysicsContact) {
+        let firstObject = contact.bodyA
+        let secondObject = contact.bodyB
+        
+        if firstObject.categoryBitMask == CollisionBitMask.ufoCategory && secondObject.categoryBitMask == CollisionBitMask.blockCategory || firstObject.categoryBitMask == CollisionBitMask.blockCategory && secondObject.categoryBitMask == CollisionBitMask.ufoCategory || firstObject.categoryBitMask == CollisionBitMask.ufoCategory && secondObject.categoryBitMask == CollisionBitMask.groundCategory || firstObject.categoryBitMask == CollisionBitMask.groundCategory && secondObject.categoryBitMask == CollisionBitMask.ufoCategory{
+            enumerateChildNodes(withName: "block", using: ({
+                (node, error) in
+                node.speed = 0
+                self.removeAllActions()
+            }))
+            if isDied == false{
+                isDied = true
+                createRestartBtn()
+                self.uFO.removeAllActions()
+            }
+        }
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isGameStarted == false{
@@ -129,52 +172,23 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 uFO.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                 uFO.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
             }
-        }
-//      restart functionality
-            if isDied == true { restartScene() }
-        }
-    
-//      don't totally get this, but this tells the background how to move. Spritekit is complicated as          all hell.
-    override func update(_ currentTime: TimeInterval) {
-//      Called before each frame is rendered
-        if isGameStarted == true{
-            if isDied == false{
-                enumerateChildNodes(withName: "background", using: ({
-                    (node, error) in
-                    let bg = node as! SKSpriteNode
-                    bg.position = CGPoint(x: bg.position.x - 2, y: bg.position.y)
-                    if bg.position.x <= -bg.size.width {
-                        bg.position = CGPoint(x:bg.position.x + bg.size.width * 2, y:bg.position.y)
+            for touch in touches{
+                let location = touch.location(in: self)
+                //      restart functionality
+                if isDied == true{
+                    if restartBtn.contains(location){
+                        if UserDefaults.standard.object(forKey: "highestScore") != nil {
+                            let hscore = UserDefaults.standard.integer(forKey: "highestScore")
+                            if hscore < Int(scoreLbl.text!)!{
+                                UserDefaults.standard.set(scoreLbl.text, forKey: "highestScore")
+                            }
+                        } else {
+                            UserDefaults.standard.set(0, forKey: "highestScore")
+                        }
+                        restartScene()
                     }
-                }))
-            }
+                }
         }
-    }
-    
-//      the headache function of all headache functions. DID BEGIN NOT DID START. Sigh.
-    func didBegin(_ contact: SKPhysicsContact) {
-        let firstObject = contact.bodyA
-        let secondObject = contact.bodyB
-        
-        if firstObject.categoryBitMask == CollisionBitMask.ufoCategory && secondObject.categoryBitMask == CollisionBitMask.blockCategory || firstObject.categoryBitMask == CollisionBitMask.blockCategory && secondObject.categoryBitMask == CollisionBitMask.ufoCategory || firstObject.categoryBitMask == CollisionBitMask.ufoCategory && secondObject.categoryBitMask == CollisionBitMask.groundCategory || firstObject.categoryBitMask == CollisionBitMask.groundCategory && secondObject.categoryBitMask == CollisionBitMask.ufoCategory{
-            enumerateChildNodes(withName: "block", using: ({
-                (node, error) in
-                node.speed = 0
-                self.removeAllActions()
-            }))
-            if isDied == false{
-                isDied = true
-                createRestartBtn()
-                self.uFO.removeAllActions()
-            }
-        }
-    }
-    func restartScene(){
-        self.removeAllChildren()
-        self.removeAllActions()
-        isDied = false
-        isGameStarted = false
-        createScene()
-    }
 }
-
+}
+}
