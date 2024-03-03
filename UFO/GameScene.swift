@@ -96,7 +96,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         createScene()
     }
     
-    //      don't totally get this, but this tells the background how to move. Spritekit is complicated as          all hell.
+    //      don't totally get this, but this tells the background how to move. Spritekit is complicated as all hell.
     override func update(_ currentTime: TimeInterval) {
         //      Called before each frame is rendered
         if isGameStarted == true{
@@ -160,7 +160,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             self.run(spawnDelayForever)
 
             let distance = CGFloat(self.frame.width + block.frame.width + 70)
-            let moveBlock = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
+            let moveBlock = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.009 * distance))
             let removeBlock = SKAction.removeFromParent()
             moveAndRemove = SKAction.sequence([moveBlock, removeBlock])
             
