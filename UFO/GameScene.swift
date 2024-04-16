@@ -70,7 +70,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             self.addChild(background)
         }
 //        setup to create ufo
-        uFOSprites.append(uFOAtlas.textureNamed("obama"))
+        uFOSprites.append(uFOAtlas.textureNamed("donnatello"))
 //        uFOSprites.append(uFOAtlas.textureNamed("obama1"))
 //        uFOSprites.append(uFOAtlas.textureNamed("obama2"))
         

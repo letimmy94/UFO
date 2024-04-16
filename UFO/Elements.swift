@@ -9,7 +9,7 @@ struct CollisionBitMask {
 extension GameScene {
     func createUFO() -> SKSpriteNode {
         //        creating sprite node for UFO
-        let uFO = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed("obama"))
+        let uFO = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed("donnatello"))
         uFO.size = CGSize(width: 50, height: 67)
         //        middle of frame.
         uFO.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
@@ -30,7 +30,7 @@ extension GameScene {
     
     func createLogo() {
         logoImg = SKSpriteNode()
-        logoImg = SKSpriteNode(imageNamed: "logo")
+        logoImg = SKSpriteNode(imageNamed: "donnie")
         logoImg.size = CGSize(width: 236, height: 350)
         logoImg.position = CGPoint(x:self.frame.midX, y:self.frame.midY + 100)
         logoImg.setScale(0.5)
